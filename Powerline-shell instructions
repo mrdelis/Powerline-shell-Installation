@@ -1,0 +1,34 @@
+Author: John Delis
+https://github.com/mrdelis
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Step 1: Install pip for python3
+sudo apt install python3-pip //make sure it's python3!
+
+Step 2: Install git or make sure you have git installed
+sudo apt install git
+
+
+Step 3: Next you can install Powerline with the help of pip command as shown.
+
+sudo pip3 install git+git://github.com/Lokaltog/powerline //make sure you write pip3 for the third version of python!
+
+Step 4: Powerline uses special glyphs to show special arrow effect and symbols for developers. For this, you must have a symbol font or a patched font installed on your systems.
+wget https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf
+wget https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf
+
+Step 5: Then you need to move the font to your fonts directory
+sudo mv PowerlineSymbols.otf /usr/share/fonts/
+sudo mv 10-powerline-symbols.conf /etc/fonts/conf.d/
+
+Step 6:
+pip3 show powerline-status //get the location of installed powerline using following command, pip3!
+(/usr/local/lib/python3.7/dist-packages)
+
+step 7: Copy-paste these commands in .bashrc
+
+#export TERM=”screen-256color” //In some cases it causes problems, it also works fine withouth this line
+powerline-daemon -q
+POWERLINE_BASH_CONTINUATION=1
+POWERLINE_BASH_SELECT=1
+. /usr/local/lib/python3.7/dist-packages/powerline/bindings/bash/powerline.sh //make sure to replace the location in the line as per your system suggested.
